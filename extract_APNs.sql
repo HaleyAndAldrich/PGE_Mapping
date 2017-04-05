@@ -1,10 +1,11 @@
 
-
+insert into rt_hai_apn
 
 select distinct
-
 case when len(APN) = 0 then sys_loc_code else replace(APN,'-','') end as APN
-
+,null
+,0
+,'Public'
 from (
 select
 sys_loc_code
