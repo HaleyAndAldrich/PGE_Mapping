@@ -39,8 +39,8 @@ union
 			, 'SELECT * INTO [EQuIS_Reporting].'
 			,' FROM (SELECT s.[sys_loc_code],s.[loc_type],s.[sys_sample_code],s.[sample_date],s.[start_depth],s.[end_depth],s.[depth_unit], s.[basis],s.[geological_unit_code], s.[sample_type_code],s.[sample_desc],s.[sample_class],s.[remediation_status],
 				   s.[x_coord],s.[y_coord] ,' + '''' + 'BaP EQ' + '''' + ' as [chemical_name], sl.mgp_area_type,
-					   s.[converted_result] as [report_result_text_HA], s.[converted_result_numeric] as [result_numeric],
-					   ((s.[converted_result] '+ '+ ' + '''' + ' ' + '''' + ' + '  + ' s.[Qualifier])) as [report_result_text_HA_qual]
+					   s.[result_value],
+					   s.[result_label]
 						FROM  s_36599_test.tbl_SO s left join dbo.tbl_36599_SamplingLocation sl on s.sys_loc_code = sl.sys_loc_code WHERE [cas_rn] = ' + '''' + '50-32-8BAPEQ.RL' + '''' + ') as soilBapTable '
 
 
