@@ -6,7 +6,7 @@ set nocount off
 go
 
 
-delete tbl_custom_tables
+delete tbl_custom_tables where facility_id = 47
 insert into tbl_custom_tables
 		select 47,'generic','tbl_SE',  'mg/kg', 'SE','N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].','  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @matrix)'
 		union					
