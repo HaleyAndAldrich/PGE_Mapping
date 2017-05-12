@@ -1,7 +1,7 @@
 USE [EQuIS_Reporting]
 GO
 
-/****** Object:  Table [dbo].[rt_hai_APN]    Script Date: 4/20/2017 10:50:20 AM ******/
+/****** Object:  Table [dbo.etl_log]    Script Date: 4/20/2017 10:50:20 AM ******/
 SET ANSI_NULLS ON
 GO
 
