@@ -1,7 +1,11 @@
 USE [EQuIS_Reporting]
 GO
 
-/****** Object:  Table [dbo.etl_log]    Script Date: 4/20/2017 10:50:20 AM ******/
+/****** Object:  Table [dbo].[ETL_Log_test]    Script Date: 5/15/2017 11:04:11 AM ******/
+DROP TABLE [dbo].[ETL_Log]
+GO
+
+/****** Object:  Table [dbo].[ETL_Log_test]    Script Date: 5/15/2017 11:04:11 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,17 +14,21 @@ GO
 
 SET ANSI_PADDING ON
 GO
-if object_id('dbo.etl_log') is not null drop table dbo.etl_log
+
 
 CREATE TABLE [dbo].[ETL_Log](
-	[ETL_ID] int  not null ,
-	[run_date] datetime not null,
+	[ETL_ID] [int] NOT NULL,
+	[run_date] [datetime] NOT NULL,
 	[schema_name] [varchar](255) NULL,
 	[table_name] [varchar](255) NULL,
-	[row_count] int NULL,
- CONSTRAINT PK__ETL_Log PRIMARY KEY CLUSTERED 
+	[permission_code_1_row_count] [int] NULL,
+	[permission_code_0_row_count] [int] NULL,
+	[total_row_count] [int] NULL,
+	[status] [varchar](10) NULL,
+ CONSTRAINT [PK__ETL_Log] PRIMARY KEY CLUSTERED 
 (
-	ETL_ID, run_date ASC
+	[ETL_ID] ASC,
+	[run_date] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
