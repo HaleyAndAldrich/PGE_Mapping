@@ -8,15 +8,15 @@ go
 
 delete tbl_custom_tables where facility_id = 47
 insert into tbl_custom_tables
-		select 47,'generic','tbl_SE',  'mg/kg', 'SE','N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].','  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @matrix)'
+		select 47,'generic','tbl_SE',  'mg/kg', 'SE','N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].','  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
 		union					
-		select 47,'generic','tbl_SO',  'mg/kg', 'SO','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @matrix)'
+		select 47,'generic','tbl_SO',  'mg/kg', 'SO','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix)'
 		union
-		select  47,'generic','tbl_GW',  'ug/l', 'WG', 'N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @matrix)'
+		select  47,'generic','tbl_GW',  'ug/l', 'WG', 'N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
 		union
-		select  47,'generic','tbl_SV',  'mg/m3', 'GS', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @matrix)'
+		select  47,'generic','tbl_SV',  'mg/m3', 'GS', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
 		union
-		select  47,'generic','tbl_IA',  'mg/m3', 'AA|IA', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @matrix)'
+		select  47,'generic','tbl_IA',  'mg/m3', 'AA|IA', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
 		union
 		select   
 			47
