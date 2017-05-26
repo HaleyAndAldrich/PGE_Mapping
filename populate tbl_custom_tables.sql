@@ -31,7 +31,7 @@ union
 
 		select   
 			47
-			,'BaP'
+			,'custom'
 			,'tbl_BaPEQ'
 			, null
 			, null
@@ -43,11 +43,34 @@ union
 					   s.[result_label]
 						FROM  s_36599_test.tbl_SO s left join dbo.tbl_36599_SamplingLocation sl on s.sys_loc_code = sl.sys_loc_code WHERE [cas_rn] = ' + '''' + '50-32-8BAPEQ.RL' + '''' + ') as soilBapTable '
 
+union
+	select
+	 47
+	,'custom'
+	,'update SO lead permissions'
+	,null
+	,null 
+	,null
+	,'update [EQuIS_Reporting]. +  @schemaname + .[tbl_SO] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
+			' and sys_loc_code not in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = @facility_id)'
+	,null
+union
+	select
+	 47
+	,'custom'
+	,'update Results lead permissions'
+	,null
+	,null 
+	,null
+	,'update [EQuIS_Reporting]. + @schemaname + .[tbl_Results] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
+			' and sys_loc_code not in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = @facility_id)'
+	,null		
+		
+		
+--declare @t table (table_name varchar (30))
+--insert into @t select table_name from tbl_custom_tables
 
-		declare @t table (table_name varchar (30))
-		insert into @t select table_name from tbl_custom_tables
-
-		select * from tbl_custom_tables
+select * from tbl_custom_tables
 
 
 
