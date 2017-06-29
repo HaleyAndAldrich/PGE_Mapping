@@ -12,7 +12,7 @@ insert into tbl_custom_tables
 		union					
 		select 47,'generic','tbl_SO',  'mg/kg', 'SO','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix)'
 		union
-		select 47,'generic','tbl_PORE',  'mg/kg', 'PORE','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix)'
+		select 47,'generic','tbl_PORE',  'mg/l', 'PORE','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix)'
 		union
 		select  47,'generic','tbl_GW',  'ug/l', 'WG', 'N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
 		union
@@ -27,8 +27,8 @@ insert into tbl_custom_tables
 			, null
 			, null
 			, 'N83SPCA III Ft'
-			, 'SELECT tblSamples.* ,sl.[surveyed_surface_elev],sl.[Parcel_ID],sl.[site_name],sl.[location_source] ,sl.[SharePoint_Folder],sl.[SharePoint_Folder_EDDs],sl.[sharepoint_link_text] ,sl.[boring_log_link],sl.[loc_id] ,sl.[mgp_area_type] INTO [EQuIS_Reporting].'
-			,' FROM(SELECT * FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Samples_v2]( @facility_id , @coord_zone) ) as tblSamples left join dbo.tbl_36599_SamplingLocation sl on tblSamples.sys_loc_code = sl.sys_loc_code' 
+			, 'SELECT distinct[subfacility_name],[sys_loc_code],[loc_name],[loc_type],[task_code],[reference_elevation],[reference_elevation_point],[coord_type_code],[x_coord],[y_coord],[SRID],[APN],Sharepoint_URL into '
+			,' FROM [EQuIS_Reporting].[s_36599E00_Test].[tbl_Results] where (permission_type_code = 0 and permission_type_code is not null) or task_code = ' + '''' + 'none' + '''' 
 union
 
 		select   
@@ -53,8 +53,8 @@ union
 	,null
 	,null 
 	,null
-	,'update [EQuIS_Reporting]. +  @schemaname + .[tbl_SO] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
-			' and sys_loc_code not in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = @facility_id)'
+	,'update [EQuIS_Reporting].s_36599E00.[tbl_SO] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
+			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
 	,null
 union
 	select
@@ -64,8 +64,8 @@ union
 	,null
 	,null 
 	,null
-	,'update [EQuIS_Reporting]. + @schemaname + .[tbl_Results] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
-			' and sys_loc_code not in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = @facility_id)'
+	,'update [EQuIS_Reporting].s_36599E00.[tbl_Results] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
+			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
 	,null		
 		
 		
