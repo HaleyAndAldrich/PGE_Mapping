@@ -28,7 +28,7 @@ insert into tbl_custom_tables
 			, null
 			, 'N83SPCA III Ft'
 			, 'SELECT distinct[subfacility_name],[sys_loc_code],[loc_name],[loc_type],[task_code],[reference_elevation],[reference_elevation_point],[coord_type_code],[x_coord],[y_coord],[SRID],[APN],Sharepoint_URL into '
-			,' FROM [EQuIS_Reporting].[s_36599E00_Test].[tbl_Results] where (permission_type_code = 0 and permission_type_code is not null) or task_code = ' + '''' + 'none' + '''' 
+			,' FROM [EQuIS_Reporting].[s_36599E00].[tbl_Results] where (permission_type_code = 0 and permission_type_code is not null) or task_code = ' + '''' + 'none' + '''' 
 union
 
 		select   
