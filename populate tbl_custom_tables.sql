@@ -8,17 +8,17 @@ go
 
 delete tbl_custom_tables where facility_id = 47
 insert into tbl_custom_tables
-		select 47,'generic','tbl_SE',  'mg/kg', 'SE','N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].','  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
+		select 47,'generic','tbl_SE',  'mg/kg', 'SE','N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].','  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
 		union					
-		select 47,'generic','tbl_SO',  'mg/kg', 'SO','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix)'
+		select 47,'generic','tbl_SO',  'mg/kg', 'SO','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select 47,'generic','tbl_PORE',  'mg/l', 'PORE','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix)'
+		select 47,'generic','tbl_PORE',  'mg/l', 'PORE','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select  47,'generic','tbl_GW',  'ug/l', 'WG', 'N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
+		select  47,'generic','tbl_GW',  'ug/l', 'WG', 'N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select  47,'generic','tbl_SV',  'mg/m3', 'GS', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
+		select  47,'generic','tbl_SV',  'mg/m3', 'GS', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select  47,'generic','tbl_IA',  'mg/m3', 'AA|IA', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix)'
+		select  47,'generic','tbl_IA',  'mg/m3', 'AA|IA', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
 		select   
 			47
@@ -28,7 +28,7 @@ insert into tbl_custom_tables
 			, null
 			, 'N83SPCA III Ft'
 			, 'SELECT distinct[subfacility_name],[sys_loc_code],[loc_name],[loc_type],[task_code],[reference_elevation],[reference_elevation_point],[coord_type_code],[x_coord],[y_coord],[SRID],[APN],Sharepoint_URL into '
-			,' FROM [EQuIS_Reporting].[s_36599E00].[tbl_Results] where (permission_type_code = 0 and permission_type_code is not null) or task_code = ' + '''' + 'none' + '''' 
+			,' FROM [EQuIS_Reporting].[s_36599E00].[tbl_Results] where (permission_type_code = 0 )'
 union
 
 		select   
