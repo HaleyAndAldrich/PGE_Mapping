@@ -41,18 +41,18 @@ DECLARE
 	set @matrix = left(@matrix,len(@matrix) -1)
 	select @matrix
 
---DROP TABLE s_36599E00.tbl_IDW
---select  * into s_36599E00.tbl_IDW FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_zone, @elev_datum, @matrix)
-Select  *  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_zone, @elev_datum, @matrix)
+DROP TABLE s_36599E00.tbl_IDW
+select  * into s_36599E00.tbl_IDW FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_zone, @elev_datum, @matrix)
+--Select  *  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_zone, @elev_datum, @matrix)
 where loc_Type  like 'idw%'
 And subfacility_NAME in ('Beach Street','Former Fillmore MGP','Former North Beach MGP')
 AND PERMISSION_type_CODE = '0'
-and x_coord is  null
+and x_coord is not null
 
---update s_36599E00.tbl_IDW
---Set Sharepoint_URL = equis_reporting.dbo.fn_PGE_sharepoint_address (subfacility_name, task_code, apn)
+update s_36599E00.tbl_IDW
+Set Sharepoint_URL = equis_reporting.dbo.fn_PGE_sharepoint_address (subfacility_name, task_code, apn)
 
---select * from s_36599E00.tbl_IDW
---where x_coord is  not null
+select * from s_36599E00.tbl_IDW
+where x_coord is  not null
 
---exec [dbo].[Sp_AddSpatialElements] 's_36599E00.tbl_IDW', N'2227'
+exec [dbo].[Sp_AddSpatialElements] 's_36599E00.tbl_IDW', N'2227'
