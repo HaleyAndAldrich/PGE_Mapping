@@ -38,12 +38,12 @@ union
 			, null
 			, null
 			, 'N83SPCA III Ft'
-			, 'SELECT * INTO [EQuIS_Reporting].'
-			,' FROM (SELECT s.[sys_loc_code],s.[loc_type],s.[sys_sample_code],s.[sample_date],s.[start_depth],s.[end_depth],s.[depth_unit], s.[basis],s.[geological_unit_code], s.[sample_type_code],s.[sample_desc],s.[sample_class],s.[remediation_status],
+			, 'SELECT * INTO [EQuIS_Reporting].[s_36599E00].tbl_BaPEQ'
+			,' FROM (SELECT s.[sys_loc_code],s.[loc_type],s.[sys_sample_code],s.[sample_date],s.[start_depth],s.[end_depth],s.[depth_unit], null as [basis], null as [geological_unit_code], s.[sample_type_code],null as [sample_desc],null as [sample_class],null as [remediation_status],
 				   s.[x_coord],s.[y_coord] ,' + '''' + 'BaP EQ' + '''' + ' as [chemical_name], sl.mgp_area_type,
 					   s.[result_value],
 					   s.[result_label]
-						FROM  s_36599_test.tbl_SO s left join dbo.tbl_36599_SamplingLocation sl on s.sys_loc_code = sl.sys_loc_code WHERE [cas_rn] = ' + '''' + '50-32-8BAPEQ.RL' + '''' + ') as soilBapTable '
+						FROM  s_36599E00.tbl_SO s left join dbo.tbl_36599_SamplingLocation sl on s.sys_loc_code = sl.sys_loc_code WHERE [cas_rn] = ' + '''' + '50-32-8BAPEQ.RL' + '''' + ') as soilBapTable '
 
 union
 	select
