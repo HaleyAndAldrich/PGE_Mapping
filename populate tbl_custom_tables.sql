@@ -57,28 +57,28 @@ union
 			,'FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( 47, null, null, ' + '''' + 'N83SPCA III Ft' + '''' + ', null,' + '''' +  'SO|SQ|W|WG|WQ' + '''' + ')'
 				 + ' where loc_Type  like ' + '''' + 'idw%' + '''' +  ' And subfacility_NAME in (' + '''' + 'Beach Street' + '''' + ',' + '''' + 'Former Fillmore MGP' + '''' + ',' + '''' + 'Former North Beach MGP' + '''' + ') AND PERMISSION_type_CODE = ' + '''' + '0' + '''' + ' and x_coord is not null'
 
-union
-	select
-	 47
-	,'custom'
-	,'update SO lead permissions'
-	,null
-	,null 
-	,null
-	,'update [EQuIS_Reporting].s_36599E00_test.[tbl_SO] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
-			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
-	,null
-union
-	select
-	 47
-	,'custom'
-	,'update Results lead permissions'
-	,null
-	,null 
-	,null
-	,'update [EQuIS_Reporting].s_36599E00_test.[tbl_Results] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
-			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
-	,null		
+--union
+--	select
+--	 47
+--	,'custom'
+--	,'update SO lead permissions'
+--	,null
+--	,null 
+--	,null
+--	,'update [EQuIS_Reporting].s_36599E00_test.[tbl_SO] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
+--			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
+--	,null
+--union
+--	select
+--	 47
+--	,'custom'
+--	,'update Results lead permissions'
+--	,null
+--	,null 
+--	,null
+--	,'update [EQuIS_Reporting].s_36599E00_test.[tbl_Results] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
+--			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
+--	,null		
 		
 		
 --declare @t table (table_name varchar (30))
