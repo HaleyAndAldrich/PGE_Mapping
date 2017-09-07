@@ -8,17 +8,17 @@ go
 
 delete tbl_custom_tables where facility_id = 47
 insert into tbl_custom_tables
-		select 47,'generic','tbl_SE',  'mg/kg', 'SE','N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].','  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
+		select 47,'generic','tbl_SE',  'mg/kg', 'SE','N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].','  FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix, @permissions) where loc_type not like ' + '''' + 'idw%' + ''''
 		union					
-		select 47,'generic','tbl_SO',  'mg/kg', 'SO','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
+		select 47,'generic','tbl_SO',  'mg/kg', 'SO','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix, @permissions) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select 47,'generic','tbl_PORE',  'mg/l', 'PORE','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
+		select 47,'generic','tbl_PORE',  'mg/l', 'PORE','N83SPCA III Ft', 'Select *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( @facility_id, @unit, null, @coord_type , @elev_datum, @matrix, @permissions) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select  47,'generic','tbl_GW',  'ug/l', 'WG', 'N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
+		select  47,'generic','tbl_GW',  'ug/l', 'WG', 'N83SPCA III Ft', 'Select * INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix, @permissions) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select  47,'generic','tbl_SV',  'mg/m3', 'GS', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
+		select  47,'generic','tbl_SV',  'mg/m3', 'GS', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix, @permissions) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
-		select  47,'generic','tbl_IA',  'mg/m3', 'AA|IA', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix) where loc_type not like ' + '''' + 'idw%' + ''''
+		select  47,'generic','tbl_IA',  'mg/m3', 'AA|IA', 'N83SPCA III Ft', 'Select  *  INTO [EQuIS_Reporting].',' FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( @facility_id, @unit, null, @coord_type, @elev_datum, @matrix, @permissions) where loc_type not like ' + '''' + 'idw%' + ''''
 		union
 		select   
 			47
@@ -54,35 +54,10 @@ union
 			, null
 			, 'N83SPCA III Ft'
 			,'select  * into s_36599E00.tbl_IDW '
-			,'FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v3]( 47, null, null, ' + '''' + 'N83SPCA III Ft' + '''' + ', null,' + '''' +  'SO|SQ|W|WG|WQ' + '''' + ')'
-				 + ' where loc_Type  like ' + '''' + 'idw%' + '''' +  ' And subfacility_NAME in (' + '''' + 'Beach Street' + '''' + ',' + '''' + 'Former Fillmore MGP' + '''' + ',' + '''' + 'Former North Beach MGP' + '''' + ') AND PERMISSION_type_CODE = ' + '''' + '0' + '''' + ' and x_coord is not null'
+			,'FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( 47, null, null, ' + '''' + 'N83SPCA III Ft' + '''' + ', null,' + '''' +  'SO|SQ|W|WG|WQ' + '''' +  ', ' + '''' + '0' + '''' +  ')' 
+				 + ' where loc_Type  like ' + '''' + 'idw%' + '''' +  ' And subfacility_NAME in (' + '''' + 'Beach Street' + '''' + ',' + '''' + 'Former Fillmore MGP' + '''' + ',' + '''' + 'Former North Beach MGP' + '''' + ')' + ' and x_coord is not null'
 
---union
---	select
---	 47
---	,'custom'
---	,'update SO lead permissions'
---	,null
---	,null 
---	,null
---	,'update [EQuIS_Reporting].s_36599E00.[tbl_SO] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
---			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
---	,null
---union
---	select
---	 47
---	,'custom'
---	,'update Results lead permissions'
---	,null
---	,null 
---	,null
---	,'update [EQuIS_Reporting].s_36599E00.[tbl_Results] set [permission_type_code] = 1 where [chemical_name] like ' + ''''+ '%lead%' + '''' + 
---			' and sys_loc_code in (select member_code from equis.dbo.rt_group_member where group_code = ' + '''' + 'PGE_SO_Lead_exclude' + '''' + ' and facility_id = 47)'
---	,null		
-		
-		
---declare @t table (table_name varchar (30))
---insert into @t select table_name from tbl_custom_tables
+
 
 select * from tbl_custom_tables
 
