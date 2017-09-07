@@ -9,6 +9,7 @@ exec equis_reporting.dbo.sp_CreateWebMapDataTables
 	,'NAVD88'
 	,'tbl_36599_SamplingLocation'
 	,'Y'
+	,'0|1'
 
 	--exec equis_reporting.dbo.sp_CreateWebMapDataTables
 	--5036806
@@ -18,3 +19,6 @@ exec equis_reporting.dbo.sp_CreateWebMapDataTables
 	--, null
 	--,null  --sample location
 	--,'n'
+	--,null
+
+	
