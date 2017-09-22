@@ -55,7 +55,7 @@ union
 			, 'N83SPCA III Ft'
 			,'select  * into s_36599E00.tbl_IDW '
 			,'FROM [EQuIS].[rpt].[fn_HAI_EQUIS_Results_v4]( 47, null, null, ' + '''' + 'N83SPCA III Ft' + '''' + ', null,' + '''' +  'SO|SQ|W|WG|WQ' + '''' +  ', ' + '''' + '0' + '''' +  ')' 
-				 + ' where loc_Type  like ' + '''' + 'idw%' + '''' +  ' And subfacility_NAME in (' + '''' + 'Beach Street' + '''' + ',' + '''' + 'Former Fillmore MGP' + '''' + ',' + '''' + 'Former North Beach MGP' + '''' + ')' + ' and x_coord is not null'
+				 + ' where permission_type_code = 0 and loc_Type  like ' + '''' + 'idw%' + '''' +  ' And subfacility_NAME in (' + '''' + 'Beach Street' + '''' + ',' + '''' + 'Former Fillmore MGP' + '''' + ',' + '''' + 'Former North Beach MGP' + '''' + ')' + ' and x_coord is not null'
 
 
 
