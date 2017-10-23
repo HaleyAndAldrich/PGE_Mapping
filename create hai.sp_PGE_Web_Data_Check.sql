@@ -12,8 +12,12 @@ alter procedure hai.sp_PGE_Web_Data_Check
 	as
 	begin
 		select distinct
-			z.task_code
-			,z.permission_type_code
+			 z.apn as [APN]
+			,z.task_code as [APN/Event]
+			,case when cast(z.permission_type_code as varchar (10))= '0' then 'Shared'
+				when cast(z.permission_type_code as varchar (10)) = '1' then 'Not Shared'
+				when cast(z.permission_type_code as varchar (10)) = '999' then 'Other'
+				else cast(z.permission_type_code as varchar (10)) end  'Share Status'
 			,case when y.task_code is not null then 'On GIS Server' else '--' end as 'Status'
 		from (
 			select distinct
